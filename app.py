@@ -12,10 +12,8 @@ app.config['SECRET_KEY'] = SECRET_KEY
 @app.route('/',methods=['POST','GET'])
 def index():
     if request.method=='POST':
-        data=request.form
-        url=data['url']
-        downloadfile(url)
-        flash("File Download Succesfully")
+        print("ok....")
+        main()
         return "file downloaded"
     # main()
     # makearchive('fileinzip','output/test')
@@ -55,7 +53,8 @@ def split():
 
 def main():
     separator=Separator('spleeter:2stems')
-    separator.separate_to_file('files/test.mp3','output/')
+    print("test")
+    separator.separate_to_file('audio_example.mp3','output/')
 
 def makearchive(filename,dir_name):
     return shutil.make_archive(filename,'zip',dir_name)
