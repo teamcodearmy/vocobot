@@ -61,6 +61,6 @@ def makearchive(filename,dir_name):
     return shutil.make_archive(filename,'zip',dir_name)
 def downloadfile(url):
     #url="https://firebasestorage.googleapis.com/v0/b/vocbot-264309.appspot.com/o/audio%2F9M90kSFtYTaa4Xj6TzDTcUEbVoB2%2F1.mp3?alt=media&token=2b734dd5-c279-4ae3-af6f-184a2d973e50"
-    urllib.request.urlretrieve(url, "files/test.mp3")
+    urllib.request.urlretrieve(url, "files/testnew.mp3")
 if __name__=='__main__':
     app.run()
