@@ -19,7 +19,7 @@ def index():
         return render_template('index.html')
     # main()
     # makearchive('fileinzip','output/test')
-    return render_template('index.html')
+    return "hello World"
 
 
 @app.route('/split',methods=['GET','POST'])
