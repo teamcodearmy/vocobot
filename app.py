@@ -19,7 +19,32 @@ def index():
         return render_template('index.html')
     # main()
     # makearchive('fileinzip','output/test')
-    return "hello World"
+    return """
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes" style="color: red;">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    <form action="/" method="post">
+        <input type="text" name="url">
+        <input type="submit" value="Download File">
+
+    </form>
+    <a href="/split">Split File</a>
+    </body>
+    </html>
+    """
 
 
 @app.route('/split',methods=['GET','POST'])
