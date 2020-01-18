@@ -1,0 +1,212 @@
+
+#from flask import Flask, flash, redirect, render_template, request, url_for, Response
+
+#from spleeter.separator import Separator
+
+## Use audio loader explicitly for loading audio waveform :
+#from spleeter.audio.adapter import get_default_audio_adapter
+
+#import os
+#import urllib.request
+##from
+#import time
+#import pathlib
+#import ssl
+#import sys
+
+##import vocalremover
+##from vocalremover.interface import Remover
+
+
+
+
+
+#app = Flask(__name__)
+
+
+
+
+#@app.route('/')
+#def index():
+#        #root = db.reference()
+#        #new_user = root.child('users').push({'name' : 'Mary Anning','since' : 1700})
+#        #return render_template('remove.html',   data=[{'name':'Toronto'}, {'name':'Montreal'}, {'name':'Calgary'},        {'name':'Ottawa'}, {'name':'Edmonton'}, {'name':'Mississauga'},        {'name':'Winnipeg'}, {'name':'Vancouver'}, {'name':'Brampton'},         {'name':'Quebec'}])
+
+#        # Using embedded configuration.
+#        #separator = Separator('spleeter:2stems')
+
+
+
+
+#        #paths = separator.separate_to_file('jack.mp3','./output/')
+#        #print('Index = '+paths)
+#        #return "Bucket {} created.".format(bucket.name)
+#        #return zipdir(paths)
+#        return render_template('index.html')
+
+
+#@app.route('/split', methods = ['GET','POST'])
+#def splitAudio():
+#    if request.method=='POST':
+#        directory = './tmp/'+request.form['uid']
+#        print(directory)
+#        #r = Response(response="TEST OK", status=200, mimetype="application/json")
+#        #r.headers["Content-Type"] = "text/xml; charset=utf-8"
+
+#        try:
+#                os.mkdir(directory)
+#        except OSError:
+#                print ("Creation of the directory %s failed" % directory)
+#                print(OSError)
+#        else:
+#                print ("Successfully created the directory %s " % directory)
+
+#        uid = str(request.form['uid'])
+#        #formName = request.form['name']
+#        print("Download = "+request.form['url'])
+#        #urllib.request.urlretrieve(request.form['url'], directory+'/1.mp3')
+
+#        return 'ok'#seperateThatShit(directory+'/1.mp3',uid)
+#        #return downloadBlob(request.form['name'])
+#    return render_template('test.html')
+#@app.route('/low', methods = ['POST'])
+#def lowQuality():
+#        directory = './tmp/'+request.form['uid']
+
+#        #r = Response(response="TEST OK", status=200, mimetype="application/json")
+#        #r.headers["Content-Type"] = "text/xml; charset=utf-8"
+#        try:
+#                os.mkdir(directory)
+#        except OSError:
+#                print ("Creation of the directory %s failed" % directory)
+#        else:
+#                print ("Successfully created the directory %s " % directory)
+#        print("Download = "+request.form['url'])
+#        urllib.request.urlretrieve(request.form['url'], directory+'/1.mp3')
+
+#        #Remover.separate_to_file(directory+'/1.mp3',request.form['uid'])
+#        return zipdir(directory)
+
+#def seperateThatShit(direct,uidme):
+#        # Using embedded configuration.
+#        separator = Separator('spleeter:2stems')
+#        separator.separate_to_file(direct,'./tmp/'+uidme+'/')
+#        return zipdir('./tmp/'+uidme)
+
+#def zipdir(loc):
+
+#        #shutil.make_archive(loc+'/result',"zip",loc+'/1')
+#        shutil.make_archive(loc+'/split',"zip",loc+'/1/')
+#        print('Zip = '+loc)
+#        print('UID = '+uid+ 'uid n = '+request.form['uid'])
+#        return upload_blob(bucket,loc+'/split','split')
+
+#def upload_blob(bucket, source_file_name, destination_blob_name):
+#        """Uploads a file to the bucket."""
+#        # bucket_name = "your-bucket-name"
+#        # source_file_name = "local/path/to/file"
+#        # destination_blob_name = "storage-object-name"
+
+#        storage_client = storage.Client()
+#        blob = bucket.blob('users/'+request.form['uid']+'/'+destination_blob_name)
+
+#        blob.upload_from_filename(source_file_name+'.zip')
+#        print('Upload Path = '+source_file_name+'.zip')
+
+#        print(
+#                "File {} uploaded to {}.".format(
+#                source_file_name, destination_blob_name
+#                )
+#        )
+#        return postToDB(destination_blob_name)
+
+
+#def postToDB(dest):
+#        root = db.reference()
+#        epoch_time = int(time.time())
+#        new_user = root.child('users').child(request.form['uid']).child('task').update({'finish' : dest,'time' : epoch_time})
+#        return deleteFolder('./tmp/'+request.form['uid']+'/')
+
+#def deleteFolder(path):
+#        ## If file exists, delete it ##
+#        shutil.rmtree(path)
+#        r = Response(response="TEST OK", status=200,  mimetype="application/json")
+#        r.headers["Content-Type"] = "text/xml; charset=utf-8"
+
+#        return "File {} uploaded to.".format(path) +'at '+str(int(time.time()))
+
+
+#def downloadBlob(blobby):
+#        directory = './tmp/'+uid
+#        blob = bucket.blob(blobby)
+#        blob.download_to_filename(directory+blobby+'.zip')
+
+#        print(
+#        "Blob {} downloaded to {}.".format(
+#            blobby, "./output/"+formName+'.mp3'
+#        ))
+
+#        return unzip("output/"+blobby+'.zip')
+
+#def unzip(unzipPath):
+#        #Unzip File
+#        #shutil.unpack_archive("./output/"+blobby+'.zip')
+#        os.makedirs("tempdata", exist_ok=True)
+#        shutil.unpack_archive(unzipPath, extract_dir="tempdata/"+uid+"/task")
+#        return 'Success'
+
+
+#@app.route('/get', methods = ['GET','POST'])
+#def getPost():
+#        if request.method == 'POST':
+#                print(request.form['name'])
+
+#        return '''
+#        <form method="POST" action="http://127.0.0.1:8081/post">
+#            Location: <input name="name" type="text">
+#            <input type="submit">
+#        </form>
+#    '''
+
+
+
+#if __name__=='__main__':
+#        app.run()
+#        #app.run(host='127.0.0.1', port=8081, debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
