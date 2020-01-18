@@ -16,7 +16,7 @@ def index():
         url=data['url']
         downloadfile(url)
         flash("File Download Succesfully")
-        return render_template('index.html')
+        return "file downloaded"
     # main()
     # makearchive('fileinzip','output/test')
     return """
