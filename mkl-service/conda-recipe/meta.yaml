@@ -1,0 +1,59 @@
+{% set version = "2.3.0" %}
+{% set buildnumber = 0 %}
+
+package:
+    name: mkl-service
+    version: {{ version }}
+
+source:
+    path: ..
+
+build:
+    number: {{ buildnumber }}
+    ignore_run_exports:
+      - blas
+      - mkl-service
+
+requirements:
+    build:
+      - {{ compiler('c') }}
+    host:
+      - python
+      - setuptools
+      - mkl-devel >=2019.3
+      - cython
+    run:
+      - python
+      - mkl >=2019.3
+      - six
+
+test:
+    requires:
+      - nose
+    imports:
+      - mkl
+    commands:
+      - nosetests -v tests
+    source_files:
+      - tests
+
+about:
+    home: http://github.com/IntelPython/mkl-service
+    license: BSD-3-Clause
+    license_file: LICENSE.txt
+    license_family: BSD
+    description:
+        Intel(R) Math Kernel Library (Intel(R) MKL) support functions are
+        subdivided into the following groups according to their purpose, such as
+            Version Information
+            Threading Control
+            Timing
+            Memory Management
+            Conditional Numerical Reproducibility Control
+            Miscellaneous
+    summary: Python hooks for Intel(R) Math Kernel Library runtime control settings.
+
+extra:
+  recipe-maintainers:
+     - oleksandr-pavlyk
+     - dmitrii-zagornyi
