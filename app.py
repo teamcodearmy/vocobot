@@ -30,14 +30,16 @@ def index():
 
 @app.route("/authorize",methods=["POST","GET"])
 def authorize():
-    data=request.form
-    urlcode=data["url"]
-    redirected_uri_params = dict(
-         parse.parse_qsl(parse.urlsplit(redirected_uri).query)
-     )
-    auth_code = redirected_uri_params["code"]
-    credentials = auth.get_credentials(auth_code)
-    return "credential "+credentials
+    if request.method=="POST"
+        data=request.form
+        urlcode=data["url"]
+        redirected_uri_params = dict(
+             parse.parse_qsl(parse.urlsplit(redirected_uri).query)
+         )
+        auth_code = redirected_uri_params["code"]
+        credentials = auth.get_credentials(auth_code)
+        return "he "+credentials
+    return "credential "
         
 
 
