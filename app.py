@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request,render_template
 from withings_api import WithingsAuth, WithingsApi, AuthScope
 from withings_api.common import get_measure_value,MeasureType
 from urllib import parse
@@ -25,8 +25,24 @@ auth = WithingsAuth(
 @app.route("/",methods=["POST","GET"])
 def index():
     authorize_url = auth.get_authorize_url()
-    credentials = auth.get_credentials('code from the url args of redirect_uri')
-    return "helo world"+credentials
+    
+    return "Go to following url to authorize  "+authorize_url
+
+@app.route("/authorize",methods=["POST","GET"])
+def authorize():
+    if request.method=="POST":
+        data=request.form
+        urlcode=data["url"]
+        redirected_uri_params = dict(
+         parse.parse_qsl(parse.urlsplit(urlcode).query)
+         )
+        auth_code = redirected_uri_params["code"]
+        credentials = auth.get_credentials(auth_code)
+        return "credential "+credentials
+    # credentials = auth.get_credentials(auth_code)
+    return render_template("index.html")
+        
+
 
 if __name__=="__main__":
     app.run()
