@@ -25,7 +25,8 @@ auth = WithingsAuth(
 @app.route("/",methods=["POST","GET"])
 def index():
     authorize_url = auth.get_authorize_url()
-    return "helo world"+authorize_url
+    credentials = auth.get_credentials('code from the url args of redirect_uri')
+    return "helo world"+credentials
 
 if __name__=="__main__":
     app.run()
