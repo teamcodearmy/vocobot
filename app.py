@@ -40,7 +40,7 @@ def authorize():
         credentials = auth.get_credentials(auth_code)
         api = WithingsApi(credentials)
         meas_result = api.measure_get_meas()
-        return "he "+str(credentials)
+        return "he "+str(meas_result)
     return "credentials"
         
 
