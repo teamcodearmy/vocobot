@@ -30,7 +30,7 @@ def index():
 
 @app.route("/authorize",methods=["POST","GET"])
 def authorize():
-    if request.method=="POST"
+    if request.method=="POST":
         data=request.form
         urlcode=data["url"]
         redirected_uri_params = dict(
