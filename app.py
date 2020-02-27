@@ -26,21 +26,18 @@ auth = WithingsAuth(
 def index():
     authorize_url = auth.get_authorize_url()
     
-    return "Go to following url to authorize  "+authorize_url
+    return render_template("index.html",url=authorize_url)
 
 @app.route("/authorize",methods=["POST","GET"])
 def authorize():
-    if request.method=="POST":
-        data=request.form
-        urlcode=data["url"]
-        redirected_uri_params = dict(
-         parse.parse_qsl(parse.urlsplit(urlcode).query)
-         )
-        auth_code = redirected_uri_params["code"]
-        credentials = auth.get_credentials(auth_code)
-        return "credential "+credentials
-    # credentials = auth.get_credentials(auth_code)
-    return render_template("index.html")
+    data=request.form
+    urlcode=data["url"]
+    redirected_uri_params = dict(
+         parse.parse_qsl(parse.urlsplit(redirected_uri).query)
+     )
+    auth_code = redirected_uri_params["code"]
+    credentials = auth.get_credentials(auth_code)
+    return "credential "+credentials
         
 
 
