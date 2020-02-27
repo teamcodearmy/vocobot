@@ -34,7 +34,7 @@ def authorize():
         data=request.form
         urlcode=data["url"]
         redirected_uri_params = dict(
-             parse.parse_qsl(parse.urlsplit(redirected_uri).query)
+             parse.parse_qsl(parse.urlsplit(urlcode).query)
          )
         auth_code = redirected_uri_params["code"]
         credentials = auth.get_credentials(auth_code)
