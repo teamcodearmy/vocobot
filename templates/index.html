@@ -5,20 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <ul class="flashes" style="color: red;">
-      {% for message in messages %}
-        <li>{{ message }}</li>
-      {% endfor %}
-      </ul>
-    {% endif %}
-  {% endwith %}
-<form action="/" method="post">
+<form action="/authorize">
     <input type="text" name="url">
-    <input type="submit" value="Download File">
-
+    <input type="submit" value="authorize" name="authorize">
 </form>
-<a href="/split">Split File</a>
+
+
 </body>
 </html>
