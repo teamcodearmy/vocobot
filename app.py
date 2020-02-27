@@ -38,7 +38,7 @@ def authorize():
          )
         auth_code = redirected_uri_params["code"]
         credentials = auth.get_credentials(auth_code)
-        return "he "+credentials
+        return "he "+str(credentials)
     return "credentials"
         
 
