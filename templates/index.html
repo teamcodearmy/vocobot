@@ -48,7 +48,7 @@
     <div class="container">
         <a href='{{url}}' onclick='gotoauthorize();'>Allow to access your Account</a>
 
-        <form action="/authorize" method="POST">
+        <form action="/authorize" method="POST" id="Div">
             <label for="url">Your Url Here</label><br>
             <input type="text" name="url" id="url"><br>
             <input class="button" type="submit" value="authorize" name="authorize">
@@ -62,6 +62,7 @@
 </body>
     
     <script>
+         document.getElementById('Div').style.display = 'none';
         function gotoauthorize()
         {
             console.log("{{url}}");
