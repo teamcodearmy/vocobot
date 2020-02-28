@@ -46,7 +46,7 @@
 </head>
 <body>
     <div class="container">
-        <a href='javascript:;' onclick='gotoauthorize();'>Allow to access your Account</a>
+        <a href='{{url}}' onclick='gotoauthorize();'>Allow to access your Account</a>
 
         <form action="/authorize" method="POST">
             <label for="url">Your Url Here</label><br>
@@ -65,7 +65,7 @@
         function gotoauthorize()
         {
             console.log("{{url}}");
-            window.location.href="{{url}}";
+      
         }
     function geturl()
     {
