@@ -53,8 +53,9 @@
     <script>
     function geturl()
     {
+        console.log(window.location.href);
         var input=document.getElementById("url");
-        input.innerText=window.location.href;
+        input.innerHTML=window.location.href;
     }
 
 </script>
