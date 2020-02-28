@@ -40,7 +40,7 @@
 
         <form action="/authorize" method="POST">
             <label for="url">Your Url Here</label><br>
-            <input type="text" name="url"><br>
+            <input type="text" name="url" id="url"><br>
             <input class="button" type="submit" value="authorize" name="authorize">
           </form> 
          <button onclick="geturl()">Copy Url</button>
@@ -53,7 +53,8 @@
     <script>
     function geturl()
     {
-        console.log(window.location.href);
+        var input=document.getElementById("url");
+        input.innerText=window.location.href;
     }
 
 </script>
