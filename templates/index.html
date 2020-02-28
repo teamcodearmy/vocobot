@@ -3,14 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        input[type=text] {
+  width: 70%;
+  padding: 15px 25px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+.container{
+    max-width: 700px;
+    margin: 0 auto;
+}
+.button{
+  background-color: #4CAF50; 
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  margin-left: 28%;
+}
+    </style>
 </head>
 <body>
-    <a href="{{url}}">{{url}}</a>
-<form action="/authorize" method="POST">
-    <input type="text" name="url">
-    <input type="submit" value="authorize" name="authorize">
-</form>
+    <div class="container">
+        <a href="{{url}}">{{url}}</a>
 
+        <form action="/authorize" method="POST">
+            <label for="url">Your Url Here</label><br>
+            <input type="text" name="url"><br>
+            <input class="button" type="submit" value="authorize" name="authorize">
+          </form> 
+    </div>
+    
+  
 
 </body>
 </html>
