@@ -32,6 +32,16 @@
   border-radius: 12px;
   margin-left: 28%;
 }
+    .btn
+        {
+              background-color: #4CAF50; 
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  margin-left: 2%;
+        }
     </style>
 </head>
 <body>
@@ -42,8 +52,9 @@
             <label for="url">Your Url Here</label><br>
             <input type="text" name="url" id="url"><br>
             <input class="button" type="submit" value="authorize" name="authorize">
+            <button type="button" onclick="geturl()" class="btn">Copy Url</button>
           </form> 
-         <button onclick="geturl()">Copy Url</button>
+         
     </div>
     
   
