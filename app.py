@@ -2,6 +2,7 @@ from flask import Flask,request,render_template
 from withings_api import WithingsAuth, WithingsApi, AuthScope
 from withings_api.common import get_measure_value,MeasureType
 from urllib import parse
+import requests
 
 app=Flask(__name__)
 
@@ -24,7 +25,10 @@ auth = WithingsAuth(
 @app.route("/",methods=["POST","GET"])
 def index():
     authorize_url = auth.get_authorize_url()
-    
+    link="http://vocobot.herokuapp.com/"
+    data = requests.request("GET", link)
+    url = data.url
+    print(url)
     return render_template("index.html",url=authorize_url)
 
 @app.route("/authorize",methods=["POST","GET"])
