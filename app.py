@@ -36,6 +36,9 @@ def authorize():
              parse.parse_qsl(parse.urlsplit(urlcode).query)
          )
         auth_code = redirected_uri_params["code"]
+        text_file = open("credentials.txt", "w")
+        n = text_file.write(auth_code)
+        text_file.close()
         credentials = auth.get_credentials(auth_code)
         api = WithingsApi(credentials)
         meas_result = api.measure_get_meas()
