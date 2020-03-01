@@ -46,8 +46,8 @@
 </head>
 <body>
     <div class="container">
-        <a href='{{url}}' onclick='gotoauthorize();'>Allow to access your Account</a>
-
+        <a href='{{url}}' class="btn" onclick='gotoauthorize();' id="u">Allow to access your Account</a>
+        <button class="btn" onclick='showform();'>Submit code from url after allow</button>
         <form action="/authorize" method="POST" id="Div">
             <label for="url">Your Url Here</label><br>
             <input type="text" name="url" id="url"><br>
@@ -69,6 +69,14 @@
             document.getElementById('Div').style.display = 'block';
       
         }
+       
+         function showform()
+        {
+            document.getElementById('u').style.display = 'none';
+            document.getElementById('Div').style.display = 'block';
+      
+        }
+        
     function geturl()
     {
         console.log(window.location.href);
