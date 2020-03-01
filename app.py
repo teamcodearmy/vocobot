@@ -39,7 +39,8 @@ def authorize():
         credentials = auth.get_credentials(auth_code)
         api = WithingsApi(credentials)
         meas_result = api.measure_get_meas()
-        return "he "+str(meas_result)
+        weight_or_none = get_measure_value(meas_result, with_measure_type=MeasureType.WEIGHT)
+        return "he "+str(weight_or_none)
     return "credentials"
         
 
