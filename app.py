@@ -6,8 +6,8 @@ import requests
 
 app=Flask(__name__)
 
-clientid="7f5486f78731e761c99878e8e37d540f5868a99c12a16089be227b372a366c36"
-consumer_secrete="efa34f8ae8542f4de35ce0a4b7108421e3d32a6bd9ae8eecc0d8efcb6ff29d7a"
+clientid="79752e7d20f15ecc90ec3b6667d0253db3f90d199d94f5e4059986261942e6ac"
+consumer_secrete="25957f167a87e73177286c8b379946e1658db6978184680f931014ba37324521"
 calbackuri="https://vocobot.herokuapp.com/"
 
 auth = WithingsAuth(
