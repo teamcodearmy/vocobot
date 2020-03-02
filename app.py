@@ -47,7 +47,12 @@ def authorize():
         meas_result = api.measure_get_meas()
         weight_or_none = get_measure_value(meas_result, with_measure_type=MeasureType.WEIGHT)
         fat=get_measure_value(meas_result,with_measure_type=MeasureType.FAT_MASS_WEIGHT)
-        return render_template("showdata.html",w=weight_or_none,f=fat)
+        musle_mass = get_measure_value(meas_result, with_measure_type=MeasureType.MUSCLE_MASS)
+        bone_mass = get_measure_value(meas_result, with_measure_type=MeasureType.BONE_MASS)
+        body_water = get_measure_value(meas_result, with_measure_type=MeasureType.HYDRATION)
+        heart_rate = get_measure_value(meas_result, with_measure_type=MeasureType.HEART_RATE)
+        pluse_vave_velicity = get_measure_value(meas_result, with_measure_type=MeasureType.PULSE_WAVE_VELOCITY)
+        return render_template("showdata.html",w=weight_or_none,f=fat,musle_mass=musle_mass,bone_mass=bone_mass,body_water=body_water,heart_rate=heart_rate,pvv=pluse_vave_velicity)
     return "credentials"
         
 
