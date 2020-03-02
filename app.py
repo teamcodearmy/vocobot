@@ -38,12 +38,13 @@ def authorize():
         auth_code = redirected_uri_params["code"]
         text_file = open("credentials.txt", "w")
         n = text_file.write(auth_code)
+        aa= text_file.readline()
         text_file.close()
         credentials = auth.get_credentials(auth_code)
         api = WithingsApi(credentials)
         meas_result = api.measure_get_meas()
         weight_or_none = get_measure_value(meas_result, with_measure_type=MeasureType.WEIGHT)
-        return "he "+str(weight_or_none)
+        return "he "+str(weight_or_none)+str(aa)+"ppp"
     return "credentials"
         
 
