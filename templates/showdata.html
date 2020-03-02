@@ -17,29 +17,52 @@
     border-radius: 15px;
     justify-content: space-between;
     display: flex;
-    background-color: #1C1C1E;
+   
     color: white;
 }
-.item_name{
-  margin-left: 25px;
+
+.item_name
+{
+width:100%;
+}
+
+.list
+{
+width:100%;
+list-style-type:none;
+}
+
+.item_name {
+  display: flex;
+justify-content:space-between;
+ background-color: #1C1C1E;
+ border-radius: 10px;
+margin-top:7px;
   font-size: 35px;
   font-weight: 800;
 }
-.item_value{
-  margin-right: 25px;
-  font-size: 35px;
-  font-weight: 600;
-}
 
+.item_value
+{
+margin-right:10%;
+}
+.item_n
+{
+margin-left:10%;
+}
     </style>
 </head>
 <body>
 
     <div class="container">
-
-      <p class="item_name">Weight</p>
+	<ul class="list">
+      <li class="item_name"><p class="item_n">Weight</p><p class="item_value">70</p>
       
-      <p class="item_value">  60.9 kg </p>
+</li>
+      <li class="item_name"><p class="item_n">Fat Mass</p><p class="item_value">70</p>
+      
+</li>
+	</ul>	
 
     </div>
 
