@@ -38,8 +38,10 @@ def authorize():
         auth_code = redirected_uri_params["code"]
         text_file = open("credentials.txt", "w")
         n = text_file.write(auth_code)
-        aa= text_file.readline()
         text_file.close()
+        file =open("credentials.txt", "r")
+        aa=file.readline()
+        file.close()
         credentials = auth.get_credentials(auth_code)
         api = WithingsApi(credentials)
         meas_result = api.measure_get_meas()
