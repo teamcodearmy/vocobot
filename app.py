@@ -13,6 +13,7 @@ calbackuri="https://vocobot.herokuapp.com/"
 auth = WithingsAuth(
     client_id=clientid,
     consumer_secret=consumer_secrete,
+    callback_uri=calbackuri,
     scope=(
         AuthScope.USER_ACTIVITY,
         AuthScope.USER_METRICS,
