@@ -46,7 +46,8 @@ def authorize():
         api = WithingsApi(credentials)
         meas_result = api.measure_get_meas()
         weight_or_none = get_measure_value(meas_result, with_measure_type=MeasureType.WEIGHT)
-        return "he "+str(weight_or_none)+str(aa)+"ppp"
+        fat=get_measure_value(meas_result,with_measure_type=MeasureType.FAT_MASS_WEIGHT)
+        return render_template("showdata.html",w=weight_or_none,f=fat)
     return "credentials"
         
 
