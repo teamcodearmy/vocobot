@@ -17,12 +17,7 @@
     max-width: 700px;
     margin: 0 auto;
 }
-        a
-        {
-                width: 200px;
-                height: 200px;
-                word-break: break-all;
-        }
+
 .button{
   background-color: #4CAF50; 
   color: white;
@@ -42,12 +37,18 @@
   border-radius: 12px;
   margin-left: 2%;
         }
+        .test
+        {
+            display: flex;
+            justify-content:space-around;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="test">
         <a href='{{url}}' class="btn" onclick='gotoauthorize();' id="u">Allow to access your Account</a>
-        <button class="btn" onclick='showform();'>Submit code from url after allow</button>
+        <button class="btn" onclick='showform();'>Submit code from url after allow</button></div>
         <form action="/authorize" method="POST" id="Div">
             <label for="url">Your Url Here</label><br>
             <input type="text" name="url" id="url"><br>
