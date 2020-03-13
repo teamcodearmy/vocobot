@@ -8,7 +8,7 @@ def index():
         data=data.decode()
         data=json.loads(data)
         msg=data["msg"]
-        msg="""[3/10, 3:11 PM] Manpreet: Transaction of Rs 120.01 has been made on Kotak credit card xx7064 on 27-Dec at KFC. Available credit limit is 57522.59."""
+        #msg="""[3/10, 3:11 PM] Manpreet: Transaction of Rs 120.01 has been made on Kotak credit card xx7064 on 27-Dec at KFC. Available credit limit is 57522.59."""
         macthobj=re.search(r"[rR][sS]\.?\s[,\d]+\.?\d{0,2}|[iI][nN][rR]\.?\s*[,\d]+\.?\d{0,2}",msg,re.M|re.I)
         macthobj2=re.search(r"[0-9]*[Xx\*]*[0-9]*[Xx\*]+[0-9]{3,}",msg,re.M|re.I)
         macthobj3=re.search(r"(?i)(?:\sat\s|in\*)([A-Za-z0-9]*\s?-?\s?[A-Za-z0-9]*\s?-?\.?)",msg,re.M|re.I)
