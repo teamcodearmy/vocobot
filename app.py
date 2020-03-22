@@ -24,7 +24,6 @@ auth = WithingsAuth(
     )
 )
 
-@app.route("/",methods=["POST","GET"])
 @app.route("/",methods=["GET","POST"])
 def index():
     authorize_url = auth.get_authorize_url()
@@ -57,13 +56,5 @@ def authorize():
         pluse_vave_velicity = get_measure_value(meas_result, with_measure_type=MeasureType.PULSE_WAVE_VELOCITY)
         return render_template("showdata.html",w=weight_or_none,f=fat,musle_mass=musle_mass,bone_mass=bone_mass,body_water=body_water,heart_rate=heart_rate,pvv=pluse_vave_velicity)
     return "credentials"
-
-
-
-        data=request.data
-        data=data.decode()
-        data=json.loads(data)
-        msg=data["msg"]
-        return jsonify({"data":"ok...."})
 if __name__=="__main__":
     app.run()
